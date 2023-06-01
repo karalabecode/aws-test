@@ -18,4 +18,5 @@ RUN dotnet publish "AwsTest.csproj" -c Release -o /app/publish /p:UseAppHost=fal
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+EXPOSE 80
 ENTRYPOINT ["dotnet", "AwsTest.dll"]
