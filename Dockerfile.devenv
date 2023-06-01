@@ -1,0 +1,8 @@
+FROM alpine:3.14
+
+ENV HISTFILE=/root/.tmp/.ash_history
+WORKDIR /root
+
+RUN apk add terraform docker aws-cli jq
+
+ENTRYPOINT ["sh"]
