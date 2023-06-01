@@ -10,8 +10,8 @@ A playground repository to test terraform deployment of .net apps to aws
 To set up the dev environment run ./devenv.sh on linux (or .\devenv.ps1 on windows, and then welcome to linux!). There you can:
  - `./run.sh` to run the api locally, goto -> http://localhost
  - `./create.sh` to deploy to aws. Make sure you have the aws config files present:
-   - $REPO_ROOT/.aws/config
    - $REPO_ROOT/.aws/credentials
+   - $REPO_ROOT/.aws/config (optionally)
  - `./destroy.sh` to destroy everything on aws
 
 # sources
