@@ -10,13 +10,12 @@ COPY ["AwsTest/AwsTest.csproj", "AwsTest/"]
 RUN dotnet restore "AwsTest/AwsTest.csproj"
 COPY . .
 WORKDIR "/src/AwsTest"
-RUN dotnet build "AwsTest.csproj" -c Release -o /app/build
+RUN dotnet build "AwsTest.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "AwsTest.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "AwsTest.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-EXPOSE 80
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AwsTest.dll"]
